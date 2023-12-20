@@ -1,5 +1,8 @@
 # Tutorial - https://www.sharepointdiary.com/2021/02/how-to-install-pnp-powershell-module-for-sharepoint-online.html
 
+# Tenant that will be used for demonstration
+$SiteURL="https://ackermannsimon-admin.sharepoint.com"
+
 # 1. Uninstall 	
 Uninstall-Module SharePointPnPPowerShellOnline -Force -AllVersions
 # Should return nothing
@@ -13,7 +16,9 @@ Get-Command -Module PnP.Powershell
 
 # 3. Test
 #Connect to PnP Online
-Connect-PnPOnline -Url "https://Crescent.sharepoint.com/sites/Marketing/" -Credential (Get-Credential)
+
+# If MFA is enabled add the '-Interactive' flag
+Connect-PnPOnline -Url $SiteURL
 #Get All Lists
 Get-PnPList
 
