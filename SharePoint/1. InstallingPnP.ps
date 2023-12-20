@@ -1,0 +1,21 @@
+# Tutorial - https://www.sharepointdiary.com/2021/02/how-to-install-pnp-powershell-module-for-sharepoint-online.html
+
+# 1. Uninstall 	
+Uninstall-Module SharePointPnPPowerShellOnline -Force -AllVersions
+# Should return nothing
+Get-Module SharePointPnPPowerShellOnline -ListAvailable | Select-Object Name,Version
+
+# 2. Install
+Install-Module PnP.PowerShell
+Register-PnPManagementShellAccess
+# Check if registered
+Get-Command -Module PnP.Powershell
+
+# 3. Test
+#Connect to PnP Online
+Connect-PnPOnline -Url "https://Crescent.sharepoint.com/sites/Marketing/" -Credential (Get-Credential)
+#Get All Lists
+Get-PnPList
+
+# 4. Update [optional]
+Update-Module -Name "PnP.PowerShell"
