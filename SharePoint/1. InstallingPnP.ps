@@ -9,6 +9,7 @@ Uninstall-Module SharePointPnPPowerShellOnline -Force -AllVersions
 Get-Module SharePointPnPPowerShellOnline -ListAvailable | Select-Object Name,Version
 
 # 2. Install
+# Install-Module -Name SharePointPnPPowerShell2019 -AllowClobber
 Install-Module PnP.PowerShell
 Register-PnPManagementShellAccess
 # Check if registered
